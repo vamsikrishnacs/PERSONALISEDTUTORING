@@ -1,0 +1,257 @@
+
+VIDEO-INTERACTION TIME
+
+
+The Video Interaction Time indicates the amount of time actually put on by the student in watching a video.Since any no of things can happen between the start of the video and the end of the video,the time difference between the start of the video and the end of the video is not a good indicator of the video watching duration.So, the folowing procedure is applie.
+
+
+The following fields are useful
+
+Time stamp
+cuurent time
+start time
+end time
+
+Time stamp:It indicates the time at which the event happened
+
+current time: It indicates the trhe point in the video at which the event happened.It is indicated in terms of length of the video and is a no ranging between 0(start) and max_length(duration in seconds).  
+
+
+start time:Happens in case of eventtype=seek_event.At what point event seek happened
+
+end time:Happens in case of eventtype=seek_event.To which point the video was seeked.
+
+
+The start and the end duration of the video is calculated by taking the difference of end and start time.The sum is the skipped portion of the video(time).Now the Final cuurent time is seen.The difference of the former and the latter gives the time for which the video is being watched.
+
+
+VIDEO-ENGAGAMENT TIME
+
+The time indicates the time for which the student is enegaged in the video.A series of happens can happen when a  user enagages witha video.
+
+THe first is only a load with no further interaction.
+HAppens when the user is navigating but not actually played.In this case the time is minimal.
+
+The second is a load with imeediate interaction which involves constant engagement with the video in terms of seeks,play,pause etc,.
+In this case The time is on line with the interaction time with a little difference on account of the pause and play durations which involves small intervals of idle time but is still counted towards the video enagement time,. 
+
+The third is when the user is disengaged(partially motivated by outside infulences the video is loaded but the inreaction may not bethe there and comes after some hours and do some activity).In such cases the max-min time difference is a large no of hours which is also actually counted towrads the engegmenty period if on the same day the events fall.The extreme case is when the loads that happened are many in which case the user is constantly trying to learn but not progessing throught the course material.In this case the time difference between the loads which is maximum is calculated.
+
+The fourth case when the days are different for the same video is neglected considering it an oulier and doesn't reflect the enagement time.
+
+
+PROBLEM-INTERACTION TIME
+
+The problem interaction time is the time taken for solving a problem by a student.The vent_types problem_get and problem_check
+are the indicators of the problem solving time.
+
+problem_check event:
+
+In this event the field values for grade and max_grade are not null an the event type contains a problem_id which is host-id-course--problemcode.
+
+problem_get event
+
+
+In this event the field values for problem_id is null.But there is a path field which is an xblock which contains the sequence of context and a unique code at the end.The code uniquely identifies the problem as in the same case as problem_check and hence when extracted give sthe start and end time of the problem.
+
+The difference between the start and end times of the problem_get and problem_check should be an indicator of the problem-duration time. 
+
+
+
+
+
+NAVIGATION TIME
+
+The Navigation events are the seq_goto,seq_next,seq_prev and page_close events.The event contains the page which contains the url of the sequence.THe first part of the url is the id ofthe chapter or the week and the second part is the session in the week or a concept.
+
+Groupin all the vents by a session and userid is an indicator of all the navigational events that happened in the particular concept in the week.We can actually find how many time sthe respource is being hit and how much time i spsent on the resource before the navgation
+happened.
+
+So the no of weeks for a student and the no of students per week,and the nof oresouce access and hit time are calcuated using the structure of these event_types.
+
+
+
+
+GROUPING THE QUERIES
+  
+
+The grouping works by working only with event_types that are realted to problemsor videos or navigatuions and is considerably faster on a table that contains only the relevant field types.Since,it voids going through the whole table and fetching irreleavant tables.So the whole table is grouped int o few separate tables like video_interaction table,problem_interaction table,navigation_table,enrollment_tabble etc..,
+
+
+The next thing is to group by course-id,username,resource id.So the query is ordered by username,time.Then grouped by username,resourceid.
+
+The sequence that emerges is a list contain the events asscociated with a particular user and a resource and in time ordering.  
+
+
+All the feautes describe above are then calcuated by doing an aggreation on the grouped values.The final features are then detremined and refined thourgh scripts for further processing.
+
+
+
+
+
+MODEL 1
+
+Difficuly of a question
+
+A simple metric to evaluate the toughness quoitient of a question is proposed.It's justa metric that takes into account the following assumptions.
+
+
+1.No of people submitting a question is considered an indicator of difficulty although it doesn't define anything on its own but can be an indicator.
+
+2.The error percent is alos an indicator in the sense that the more the errors on the questions by the overall population,more difficult the question is assumed.
+
+3.Normalised attempt factor that is the factor of maximum no of attempts to minimum also can play a role in difficulty of question.Since an difficult question conatins more attempts.
+
+4.Average time taken to solve a question is also counted towards the difficulty of a question since it is assumed that difficult question require more time.
+
+
+THe difficulty metric is a product of all normalised factors resulting ina value between 0 and 1.The lesser the value more the difficult the question is the explanation provided.
+
+Note that this may not be an accurate metric but just aimed at based on the features generated on a per question basis and may help in analysing it further.
+
+
+
+Maximum skipped portion of a video
+
+
+The Maximum skipped portion of a video is calculated by taking into account the start and end times of a skip for a video based on the overall population.
+
+
+The query selected is to find all the skips performed on a video by the overall population.The skips were recorded and the overall length of the video is binned into some random intervals eg 10.For every bin the frequency of the skip during the interval is calculated both for the starting and the ending time generating two plots.The Max skipped portion of the video is the part which has the maximum frequency of the skips in the interval for the start time and less no of skips for the end time plot.This is not in itslef complete to define the exact maximum skipped portion of a video but can be a visual to the instructor in getting an idea of the performance of the video.He can identify at what point the maximum skips are portion and may further anlayse it to find out if there is any ambiguity in the video.
+
+
+
+
+Similarity of Videos
+
+
+An attempt is made to study the effectiveness of a video on the basis of popularity and engagement.The Assumptions made are that,An important concept may contain many no of hits but the video watch duration by averaged over the whole population may be less even though the no of hits are more but in the other case the no of views might be less but the average watch duration might be more giving a precursor that the not so important concept in the minds of the student have a good engagement and is useful where as in the first case the concept with more hits failed to retain the students which can be considered as an implication of the need to further refine to make it more engaging.
+
+The features used for the foloowing
+
+1.The avg no of skips
+2.The count of the users who watched it(Hits)
+3.The avg Duration of the video
+4.The avg seek time (duration) of the video
+5.No of loads
+6.Avg Engagement time(see def Engagement time)
+
+
+A k-means clusteing algorithm is used to group the vidoes with similar ibnteractio behaviour together.Note that the features generated are per-video basis and it inidcates the entire population which are of different behaviours and at best the averages are taken to minimise the impact and as an effort to represent the whole population.
+
+After clustering the values in each cluster are observed.It is a combination of No of skips and skip time which represnts ambiguity,total count(load and watch) which indicates the importance of the concept and the duration(actual and engagement) which represents the enagament of the video.The desirabilty is not defined but it is assume the more the engagement and lesser the ambiguity it is desirable.
+
+The values in each cluster are analysed to provide a meaning to similarity of videos.
+
+
+
+Predicting the final score of a student based on interaction behaviour
+
+The fundamental assumption of the model is that the video,problem interaction and trhe navigational behaviour of the user is an indicator of the final score.
+
+Basically the two assumptions that are not taken into account are the following
+
+1.The behaviour changes with week to week performance,but it is assumed the no.s averaged over the entire duration of the course are the indicators of learning.
+
+2.The IQ levels of the students varies from person to person and also it reflects in the amount of time that needs to be done to undersatnd the concept and the time of video,problem and navigation differs from person to person.
+
+But,the classification of the users is studied in further algorithms in much detail.This is an attempt to fit the final score in terms of the feautres generated.
+
+The features used are the folowing
+
+1Video Interaction
+
+ skips(avg)
+ skiptime(avg)
+ Hits
+ Loads(count)
+ Actual Watch Duration(avg)
+ Actual Engagement Duration(avg)
+
+
+2 Problem Interaction
+ Count of Problems attempted
+ Avg duration on solving problems
+ Total Attempts
+ Error rate
+
+3 Navigation
+ Total no of weeks active
+ Total time spent on all weeks
+
+
+4.Final score obtained
+
+
+A Linear Regression algoirthm is fitted since the output is a continous variable and the error is assumed to be minimised on fitting the algorithm.
+
+
+
+
+Mining Simliar Behaviour groups
+
+The problem mentioned previously as the variation in the learning abilities of the students leads them to behave differently,The solution is to identify the User groups who behave similarly and then relate how their behaviour affects the outcome.
+
+
+The features used previously in the regression algorithm were used for the clustering of students except the final score.The k-means algorithm clusters the users on the means of values for each feature.The no of clusters chosen were 10 to ensure the maximum variabilty in the behaviour since it is based on times,counts,navigations,skips,attempts,errors the trends in the behaviour can be suitably categorised.
+
+After the clusters are formed the population is divided based on its assignment to each cluster,the mean of the population belonging to a each clutser is plotted for the population in each cluster.The trends show the variation in watching time,counts,skips and error rate.The variations are atttributed to the final score obtained for each student to identify a relation between student behaviour and final result.
+
+
+
+BKT
+
+The next algoithm is to find the actual learning of the student based on his sequence of responses,for a particluar concept also referred to as Knowledge Component or KC.All the student responses for the KC are recorded.The basic algoithm is explained in the literature survey portion known as the Bayesian Knowledge Tracing algorithm.It's a special case of a Hidden Markov Model where the latent node is Knowledge and observation nodes is Result(correct/wrong).The transition probability from Unlearned to Learned state is the probaility of Learning.The emission probabilities are the guess and slip values of the KC at time step.The input is a set of responses of a quiz related to KC and the values are fiited using the Baum-welch forward-backward algorithm.The spcial cases added th this are the standard implementation use a single long sequence and it doesn't take into account the conditional probability of the rsource on probabilty of learning.The Baum-welch is implemented to take into account training multiple instances at once for a KC i.e the set of sequences of a student and the transition probabilty conditined on the rsource node which can be either the id of the resource when a unique set of resource ids can be mapped to KC or just the no of resources accessed in the simplest case.The values are fitted for a KC.
+
+After the model is trained It is used to find the knowledge value at the end of answering a few questions of the KC.If it is above .85 then the student is assmued to have some good understanding of the concept and in th other case with less values he needs to do more work.
+
+
+The guess and slip value are also an indicator of the shallowness of the student and students with high slip values are considered careless.
+
+
+Contextual guess
+
+The next model is an impovisation over the previous model which takes into account the context associated with solving a problem.The context as described in the literaure survey portion is the reflection of the behaviour just before sloving the problem like time taken vs avg time taken and past few actions duration,skips,navigations and error rate for this problem vs overall population and is trained as  regression model to fit the context with the final guess and slip values.
+
+For the accurate measurements of the guess and slip values a set of sequences are taken and looking at the next two actions the value for the guess and slip are calculated using the BKT estoimated probabilities but usign future actions which are then considered to be the best possible estimates of guess and slip to train the model.
+
+Then the model fits the context to guess and slip.The tarined model then can be used to predict guess value using the context of the student. 
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+  
+
+
+ 
+
+
+ 
+ 
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+

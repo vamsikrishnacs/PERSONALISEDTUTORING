@@ -1,0 +1,9 @@
+import numpy
+import csv
+
+fp=open("maxseektimecasted.csv",'r')
+csvf=csv.reader(fp)
+#for i in fp:
+stri=fp.readline()
+stri=stri.strip()
+print stri[2]

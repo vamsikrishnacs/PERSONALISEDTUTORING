@@ -1,0 +1,501 @@
+    3  g++ swapnodes.cpp 
+    4  ./a.out 
+    5  g++ swapnodes.cpp 
+    6  g++ swapnodes.cpp 
+    7  g++ swapnodes.cpp 
+    8  g++ swapnodes.cpp 
+    9  g++ swapnodes.cpp 
+   10  ./a.out 
+   11  g++ swapnodes.cpp 
+   12  ./a.out 
+   13  g++ swapnodes.cpp 
+   14  ./a.out 
+   15  g++ swapnodes.cpp 
+   16  ./a.out 
+   17  g++ swapnodes.cpp 
+   18  ./a.out 
+   19  g++ swapnodes.cpp 
+   20  ./a.out 
+   21  g++ swapnodes.cpp 
+   22  ./a.out 
+   23  g++ swapnodes.cpp 
+   24  ./a.out 
+   25  vi swapnodes.cpp 
+   26  g++ swapnodes.cpp 
+   27  ./a.out 
+   28  g++ swapnodes.cpp 
+   29  g++ swapnodes.cpp 
+   30  ./a.out 
+   31  g++ swapnodes.cpp 
+   32  ./a.out 
+   33  g++ swapnodes.cpp 
+   34  ./a.out 
+   35  g++ swapnodes.cpp 
+   36  ./a.out 
+   37  g++ swapnodes.cpp 
+   38  ./a.out 
+   39  g++ swapnodes.cpp 
+   40  ./a.out 
+   41  g++ swapnodes.cpp 
+   42  ./a.out 
+   43  g++ swapnodes.cpp 
+   44  ./a.out 
+   45  g++ swapnodes.cpp 
+   46  ./a.out 
+   47  g++ swapnodes.cpp 
+   48  ./a.out 
+   49  g++ swapnodes.cpp 
+   50  ./a.out 
+   51  g++ swapnodes.cpp 
+   52  ./a.out 
+   53  g++ swapnodes.cpp 
+   54  ./a.out 
+   55  g++ swapnodes.cpp 
+   56  ./a.out 
+   57  g++ swapnodes.cpp 
+   58  ./a.out 
+   59  g++ swapnodes.cpp 
+   60  ./a.out 
+   61  g++ swapnodes.cpp 
+   62  g++ swapnodes.cpp 
+   63  ./a.out 
+   64  g++ swapnodes.cpp 
+   65  ./a.out 
+   66  g++ swapnodes.cpp 
+   67  ./a.out 
+   68  g++ swapnodes.cpp 
+   69  ./a.out 
+   70  vi unset.cpp
+   71  g++ unset.cpp 
+   72  ./a.out 
+   73  vi unset.cpp
+   74  g++ unset.cpp 
+   75  vi unset.cpp
+   76  g++ unset.cpp 
+   77  ./a.out 
+   78  vi unset.cpp
+   79  g++ unset.cpp 
+   80  ./a.out 
+   81  vi unset.cpp
+   82  g++ unset.cpp 
+   83  ./a.out 
+   84  vi unset.cpp
+   85  vi unset.cpp
+   86  vi tickets.cpp
+   87  vi unset.cpp
+   88  g++ unset.cpp 
+   89  ./a.out 
+   90  vi unset.cpp
+   91  ./a.out 
+   92  g++ unset.cpp 
+   93  ./a.out 
+   94  vi unset.cpp
+   95  g++ unset.cpp 
+   96  vi unset.cpp
+   97  g++ unset.cpp 
+   98  ./a.out 
+   99  vi unset.cpp
+  100  g++ unset.cpp 
+  101  ./a.out 
+  102  vi unset.cpp
+  103  g++ unset.cpp 
+  104  ./a.out 
+  105  vi unset.cpp
+  106  g++ unset.cpp 
+  107  ./a.out 
+  108  vi tickets.cpp
+  109  vi windwos.cpp
+  110  g++ windwos.cpp 
+  111  vi windwos.cpp
+  112  g++ windwos.cpp 
+  113  vi windwos.cpp
+  114  g++ windwos.cpp 
+  115  vi windwos.cpp
+  116  g++ windwos.cpp 
+  117  vi windwos.cpp
+  118  g++ windwos.cpp 
+  119  vi windwos.cpp
+  120  g++ windwos.cpp 
+  121  vi windwos.cpp
+  122  g++ windwos.cpp 
+  123  vi windwos.cpp
+  124  g++ windwos.cpp 
+  125  ./a.out 
+  126  vi windwos.cpp
+  127  g++ windwos.cpp 
+  128  ./a.out 
+  129  ./a.out 
+  130  vi windwos.cpp
+  131  vi siticn.cpp
+  132  g++ siticn.cpp 
+  133  ./a.out 
+  134  vi siticn.cpp
+  135  g++ siticn.cpp 
+  136  vi siticn.cpp
+  137  g++ siticn.cpp 
+  138  ./a.out 
+  139  vi siticn.cpp
+  140  g++ siticn.cpp 
+  141  vi siticn.cpp
+  142  g++ siticn.cpp 
+  143  ./a.out 
+  144  ./a.out 
+  145  vi plaindromic.cpp
+  146  g++ plaindromic.cpp 
+  147  vi plaindromic.cpp
+  148  g++ plaindromic.cpp 
+  149  vi plaindromic.cpp
+  150  g++ plaindromic.cpp 
+  151  ./a.out 
+  152  vi plaindromic.cpp
+  153  vi siticn.cpp
+  154  vi plaindromic.cpp
+  155  vi plaindromic.cpp
+  156  g++ plaindromic.cpp 
+  157  ./a.out 
+  158  vi plaindromic.cpp
+  159  g++ plaindromic.cpp 
+  160  ./a.out 
+  161  vi plaindromic.cpp
+  162  g++ plaindromic.cpp 
+  163  vi plaindromic.cpp
+  164  g++ plaindromic.cpp 
+  165  vi plaindromic.cpp
+  166  g++ plaindromic.cpp 
+  167  vi plaindromic.cpp
+  168  g++ plaindromic.cpp 
+  169  ./a.out 
+  170  vi plaindromic.cpp
+  171  g++ plaindromic.cpp 
+  172  ./a.out 
+  173  vi plaindromic.cpp
+  174  g++ plaindromic.cpp 
+  175  ./a.out 
+  176  vi ones.cpp
+  177  vi ones.cpp
+  178  vi ones.cpp
+  179  vi wildcard.cpp
+  180  vi wildcard.cpp
+  181  vi wildcard.cpp
+  182  exit
+  183  ls
+  184  ls
+  185  wpd
+  186  pwd
+  187  ls
+  188  cd ..
+  189  ls
+  190  cd ..
+  191  ls
+  192  pwd
+  193  cd ..
+  194  mkdir hmm
+  195  cd hmm
+  196  ls
+  197  pwd
+  198  vi hmmtrain.cpp
+  199  g++ hmmtrain.cpp 
+  200  vi hmmtrain.cpp
+  201  g++ hmmtrain.cpp 
+  202  vi hmmtrain.cpp
+  203  ls
+  204  pwd
+  205  cd /Users/vamsikrishna/Downloads/
+  20:wq
+6  ls
+  207  cd standard-bkt-public-standard-bkt
+  208  ls
+  209  vo readme.txt 
+  210  vi readme.txt 
+  211  g++ trainhmm.cpp 
+  212  vi HMMProblem.cpp 
+  213  ls
+  214  cd ..
+  215  ls
+  216  pwd
+  217  cd ..
+  218  ls
+  219  pwd
+  220  cd Desktop/
+  221  ls
+  222  cd pc
+  223  la
+  224  ls
+  225  mkdir chandu
+  226  cd chandu
+  227  ls
+  228  ls
+  229  pwd
+  230  cd ..
+  231  ls
+  232  cd ..
+  233  ls
+  234  ls
+  235  pwd
+  236  cd hmm/
+  237  ls
+  238  vi hmm.cpp
+  239  g++ hmm.cpp 
+  240  vi hmm.cpp
+  241  g++ hmm.cpp 
+  242  ./a.out 
+  243  ./a.out 
+  244  ./a.out 
+  245  vi hmm.cpp
+  246  g++ hmm.cpp 
+  247  ./a.out 
+  248  vi hmm.cpp
+  249  g++ hmm.cpp 
+  250  vi hmm.cpp
+  251  g++ hmm.cpp 
+  252  ./a.out 
+  253  vi hmm.cpp
+  254  g++ hmm.cpp 
+  255  ./a.out 
+  256  vi hmm.cpp
+  257  g++ hmm.cpp 
+  258  vi hmm.cpp
+  259  g++ hmm.cpp 
+  260  vi hmm.cpp
+  261  g++ hmm.cpp 
+  262  vi hmm.cpp
+  263  g++ hmm.cpp 
+  264  vi hmm.cpp
+  265  g++ hmm.cpp 
+  266  ./a.out 
+  267  vi hmm.cpp
+  268  g++ hmm.cpp 
+  269  ./a.out 
+  270  vi hmm.cpp
+  271  g++ hmm.cpp 
+  272  ./a.out 
+  273  vi hmm.cpp
+  274  g++ hmm.cpp 
+  275  ./a.out 
+  276  ls
+  277  wpd
+  278  pwd
+  279  vi hello1.py 
+  280  python hello1.py 
+  281  numpy
+  282  python
+  283  sudo port install py27-numpy py27-scipy py27-matplotlib py27-ipython +notebook py27-pandas py27-sympy py27-nose
+  284  vi hello1.py 
+  285  python hello1.py 
+  286  vi hello1.py 
+  287  python hello1.py 
+  288  vi hello1.py 
+  289  python hello1.py 
+  290  vi hello1.py 
+  291  pwd
+  292  ls
+  293  pwd
+  294  vi hello1.py 
+  295  mkdir mtp
+  296  ls
+  297  vi test.py
+  298  pwd
+  299  cd mtp/
+  300  ls
+  301  vi test.py 
+  302  pwd
+  303  pythonon test.py 
+  304  python test.py 
+  305  pythonon test.py 
+  306  python hello1.py 
+  307  python test.py 
+  308  python hello1.py 
+  309  python test.py 
+  310  python hello1.py 
+  311  python test.py 
+  312  python hello1.py 
+  313  python test.py 
+  314  python test.py 
+  315  python test.py 
+  316  python test.py 
+  317  python test.py 
+  318  python test.py 
+  319  python hello1.py 
+  320  python test.py 
+  321  python test.py 
+  322  python test.py 
+  323  python test.py 
+  324  python test.py 
+  325  python test.py 
+  326  python test.py 
+  327  python test.py 
+  328  python test.py 
+  329  vi test1.py 
+  330  python test1.py 
+  331  vi test1.py 
+  332  python test1.py 
+  333  vi test1.py 
+  334  python test1.py 
+  335  vi test1.py 
+  336  python test1.py 
+  337  python test.py 
+  338  vi test1.py 
+  339  python test.py 
+  340  python test1.py 
+  341  python test.py 
+  342  python test.py 
+  343  python test.py 
+  344  python test.py 
+  345  python test.py 
+  346  python test.py 
+  347  python test.py 
+  348  python test.py 
+  349  python test.py 
+  350  python test.py 
+  351  python test.py 
+  352  python test.py 
+  353  python test.py 
+  354  python test.py 
+  355  python test.py 
+  356  python test.py 
+  357  python test.py 
+  358  python test.py 
+  359  python test.py 
+  360  python test.py 
+  361  python test.py 
+  362  scikit
+  363  python test.py 
+  364  vi test.py 
+  365  python
+  366  python
+  367  python test.py 
+  368  python test.py 
+  369  python test.py 
+  370  vi model1.py
+  371  vi model1.py
+  372  python model1.py
+  373  python model1.py
+  374  python model1.py
+  375  python model1.py
+  376  python model1.py
+  377  python model1.py
+  378  python model1.py
+  379  python model1.py
+  380  python model1.py
+  381  python model1.py
+  382  python model1.py
+  383  python model1.py
+  384  python model1.py
+  385  python model1.py
+  386  python model1.py
+  387  python model1.py
+  388  python model1.py
+  389  python model1.py
+  390  python model1.py
+  391  python model1.py
+  392  python model1.py
+  393  python model1.py
+  394  python model1.py
+  395  python model1.py
+  396  python model1.py
+  397  python model1.py
+  398  python model1.py
+  399  python model1.py
+  400  python model1.py
+  401  python model1.py
+  402  python model1.py
+  403  /Volumes/xppmac/xppaut ; exit;
+  404  /Volumes/xppmac/xppaut ; exit;
+  405  python model1.py
+  406  python model1.py
+  407  python model1.py
+  408  python model1.py
+  409  python model1.py
+  410  python model1.py
+  411  python model1.py
+  412  python model1.py
+  413  python model1.py
+  414  python model1.py
+  415  python model1.py
+  416  python model1.py
+  417  python model1.py
+  418  python model1.py
+  419  python model1.py
+  420  python model1.py
+  421  python model1.py
+  422  python model1.py
+  423  python model1.py
+  424  python model1.py
+  425  python model1.py
+  426  python model1.py
+  427  python model1.py
+  428  python model1.py
+  429  ls
+  430  vi model2.py
+  431  pythonon model2.py 
+  432  python model2.py 
+  433  vi model2.py
+  434  python model2.py 
+  435  vi model2.py
+  436  python model2.py 
+  437  vi model2.py
+  438  vi model2.py
+  439  python model2.py 
+  440  vi model2.py
+  441  python model2.py 
+  442  vi model2.py
+  443  python model2.py 
+  444  vi model2.py
+  445  python model2.py 
+  446  vi model2.py
+  447  python model2.py 
+  448  vi model2.py
+  449  python model2.py 
+  450  vi model2.py
+  451  python model2.py 
+  452  vi model2.py
+  453  python model2.py 
+  454  vi model2.py
+  455  python model2.py 
+  456  python model2.py 
+  457  python model2.py 
+  458  python model2.py 
+  459  python model2.py 
+  460  python model2.py 
+  461  python model2.py 
+  462  python model2.py 
+  463  python model2.py 
+  464  vi datafile_guessvalues
+  465  python model2.py 
+  466  python model2.py 
+  467  python model2.py 
+  468  vi simpleex.py
+  469  vi datafile.txt
+  470  pythonon simpleex.py 
+  471  python simpleex.py 
+  472  vi datafile.txt
+  473  vi simpleex.py
+  474  vi datafile.txt
+  475  python simpleex.py 
+  476  vi datafile.txt
+  477  vi simpleex.py
+  478  python simpleex.py 
+  479  vi simpleex.py
+  480  python simpleex.py 
+  481  vi datafile.txt
+  482  python simpleex.py 
+  483  vi datafile.txt
+  484  python simpleex.py 
+  485  vi datafile.txt
+  486  vi simpleex.py
+  487  python simpleex.py 
+  488  vi simpleex.py
+  489  python simpleex.py 
+  490  vi simpleex.py
+  491  python simpleex.py 
+  492  vi simpleex.py
+  493  python simpleex.py 
+  494  vi simpleex.py
+  495  python simpleex.py 
+  496  vi simpleex.py
+  497  python simpleex.py 
+  498  vi simpleex.py
+  499  python simpleex.py 
+  500  ls
+  501  ls
+  502  history >hist

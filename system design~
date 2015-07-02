@@ -1,0 +1,159 @@
+System Design
+
+
+Unparsed Logs
+
+The edx log is parsed by extracting the data in HDFS(Hadoop File System).The log is parsed into different tables by classifying the events related to different resources such as problems,videos,navigations,enrollments,discussions,library,textbook etc...
+
+Now every event related to a resource is contained in the table with the resource type for the entire population.
+
+
+The Data is loaded into Hadoop.
+
+Hive schemas are created corresponding to different resources and thereby resulting in different tables.Once these schemas are created, data need to be put into these tables.The Data is further cleaned and then transferred from rwa text logs to hive tables.This is done by extracting the contents of the log to json table which is then further diverted to different tables based on the eventtype after further processing.
+
+Each event in the interaction log is in the format of json.
+
+The most important of the common fields in the event log as listed by edx are as follows
+
+agent It identifies where the event is emitted(server/browser)
+context It uniquely identifies the event that is emitted by giving the details about the event 
+
+course_id name of the course
+org_id host of the course
+path path of the resource
+user_id student identity
+
+module(specific) module id  of the resource 
+
+eventtype Type of the event triggered may be problemcheck or videoseek or play etc.
+
+Time Time at which event happened
+
+Session User session
+
+Page url of the resource
+
+It contains two hashcodes 
+one indicates the chapter name
+
+second indicates the session(concept) name
+
+
+The hierarchy is listed in the image shown below.Every type of resource is of module with some type listed here.
+
+
+Special Event field
+
+The Event field contains the event specific details which is different for different event types.The list is populated with different no of member fields according to the event.
+
+For eg
+
+The member fields for a seek_video event are
+current time,old_time,new_time,code(youtube id)
+
+where as for pause_video contains only code,currenttime
+
+The member fields for a problem_check event are
+
+answers,attempts,correctmap,grade,maxgrade,attempts,problemid,submission.
+
+where as problem_show is just 
+problem.
+
+
+
+
+At the end of the event processing we have a system that can be queried for further details.
+
+
+Problem processing
+
+The problem interaction features are generated using some query processing.The important observation is when the events are ordered by username,time they list all the events fired by a user in time sequence and doing this on different kinds of tables results in information related to them such as problem_interatcion,video_interaction or a navigation.
+
+
+
+
+For problem processing the page field is null for some types but there is a path which contains the id of the resource(problem) which is concatenation of different fields including type,course,module etc...The no is extracted from the path which will be uniquely identify the problem whci will be the same for event type including problemcheck,showanswer or problemget,
+
+The time spent ona problem is the time difference between the get and check events for the particular id,The third level groups them by performing an aggegation and grouping them over username,problemid(extracted).
+
+
+The aggregation on the key can give all the problem related information like time spent,grade obtained,no of attempts.
+
+
+
+The scripts include the ones for simple processing like to timestamp parse and calculate the difference in seconds for a key(user,problem).Another one identifies the ones where the id is not null gives all the problem check events.The sum over the grade gives total score and identifying only the problemget events gives the count of the problems actually loaded which is different from the no of problems that were submitted.The total attempts can be calculated by summing over attempts corresponding to user in outer query.
+
+Thus all the necessary features were extracted and plotted.
+
+
+Here the statistics are for every problem which involves a grouping by only problemid and the other is for every user.
+
+
+The statistics defined are part of the overall interaction for the user whereas the statistics by problem is all the information associated with a problem. 
+
+
+
+
+Video processing
+
+The sample methodology applies for video interaction events except the features in consideration are the skip,pause,play interaction behaviour of the user.The skiptime,video watch duration terms are explained previously.
+
+
+The same grouping is applied with the key as user,videoid.The statistics obtained include the video counts,skip times,average no of skips,video loads,durations etc..,
+
+
+The loads happen every time a user navigates to a video but maynot be actually a part of interaction unless a play or seek happens.The variations include when a user just loads and navigates which is usually done in few seconds but with a currenttime firld with max value of 0 indicating it was not watched.The other scenario is when the user constantly interacts with the video but without any engagement in which the count of loads are many in number but every load may not have an interaction.It is assumed to happen because of user navigating away and then coming back in which case the engeagement is still counted as the time difference between the start and end times,but in other case it may be because of user drifting away from being active on edx and then come on an other day and watch it.For this purpose all the time differences between the loads were calculated and any interaction is captured.
+
+
+
+
+The grouping statistics are again calculated by video and an analysis is performed and the other is by user which forms a portion of interaction for user.
+
+
+
+
+Navigation events
+
+The time spent on a resource is calculated by using navigation interaction table which is based on seq_next,seq_goto events.The starting and the ending point of the sequence associated with a session(concept) in a chapter is listed with every event.These were ordered by time which gives the actual time associated with the id in the sequence.The count of no of weeks atteneted by the user is calculated along with time spent at each week at each id,similarrly the nof of users for a week and no of users who had accessed a particular id in the sequence or the total no of weeks for a user are all figured out.
+
+
+These details are plotted week wise and by user to give a visual of the navigational behaviour of the user.These are in addition to the problem,video interaction formals an integral part in terms of defining user behaviour.
+ 
+
+
+Feature generation
+
+
+The next step is building the features listed in every model in meaningful format by grouping them by user as well as by video or by problem.
+
+The difficulty is to club with csv files with statistics from different no of counts for each kind of event .So the process is to mainatain a dictionary of all the behaviour associated with a user in terms of problem,video or navigation.Analysing this dictionary
+
+1.The users who have interacted with videos but no problem interaction
+
+2.The users who solved problems but no video interaction
+
+3.The users who had used everything
+
+The differences in the numbers can't be explained visually.A thorugh analysis of these features is sone using the models which were produced based on different requirements as explained previously.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

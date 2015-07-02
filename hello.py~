@@ -1,0 +1,25 @@
+
+print "start"
+def hello():
+	print "hello"
+	for i in range(2,10):
+		print i
+	print "hi"
+
+l=["s1","s2","asi",3]
+hello()
+print l[1:10]
+l.append(4)
+print l
+for i in l:
+	print i
+p=[]
+p=["12345","212"]
+def dictionary():
+	print "i'm dictionary"
+	d={1:2,2:"asa"}
+	p[0]="1234"
+	print p
+	print d[1]
+
+dictionary()

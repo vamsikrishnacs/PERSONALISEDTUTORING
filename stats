@@ -1,0 +1,21 @@
+finalproblems contains stats of users
+
+grades-user 1467 user stats(score,attempts,count)
+
+3485(3444) -total(time)
+
+finalvideo  stats of video
+
+finalvideo-user stats video wise
+6580 total
+6469 loads(only time+all)
+2548 seeks user stats(list seeks,avg,count,time,loadcount,loadtime)
+3444 only loads(only time)
+count v/sloadcount(video)
+count (problem)
+
+
+gradestimes >time.csv
+
+['0.223617724499', 0.6063764561618639, ' 962342', '641', '19']
+
